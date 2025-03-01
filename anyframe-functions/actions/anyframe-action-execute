@@ -7,12 +7,12 @@
 function _anyframe-action-execute()
 {
   if zle; then
-    BUFFER="$*"
-    zle accept-line
-    # redisplay the command line
-    zle -R -c
+  BUFFER="$*"
+  zle accept-line
+  # redisplay the command line
+  zle -R -c
   else
-    eval "$*"
+  eval "$*"
   fi
 }
 
@@ -22,18 +22,18 @@ local option OPTARG OPTIND
 while getopts ':q:d' option; do
   case $option in
   q)
-    quote_item="1"
-    ;;
+  quote_item="1"
+  ;;
   Q)
-    quote_item="0"
-    ;;
+  quote_item="0"
+  ;;
   d)
-    use_double_quote="1"
-    ;;
+  use_double_quote="1"
+  ;;
   *)
-    echo "$0: invalid option -- $OPTARG" 1>&2
-    return 1
-    ;;
+  echo "$0: invalid option -- $OPTARG" 1>&2
+  return 1
+  ;;
   esac
 done
 shift $((OPTIND - 1))

@@ -6,12 +6,12 @@
 function _anyframe-action-insert()
 {
   if zle; then
-    LBUFFER+="$*"
-    CURSOR=$#LBUFFER
-    # redisplay the command line
-    zle -R -c
+  LBUFFER+="$*"
+  CURSOR=$# LBUFFER
+  # redisplay the command line
+  zle -R -c
   else
-    print -z -f '%s' "$*"
+  print -z -f '%s' "$*"
   fi
 }
 
@@ -20,15 +20,15 @@ local option OPTARG OPTIND
 while getopts ':q' option; do
   case $option in
   q)
-    quote_item="1"
-    ;;
+  quote_item="1"
+  ;;
   Q)
-    quote_item="0"
-    ;;
+  quote_item="0"
+  ;;
   *)
-    echo "$0: invalid option -- $OPTARG" 1>&2
-    return 1
-    ;;
+  echo "$0: invalid option -- $OPTARG" 1>&2
+  return 1
+  ;;
   esac
 done
 shift $((OPTIND - 1))

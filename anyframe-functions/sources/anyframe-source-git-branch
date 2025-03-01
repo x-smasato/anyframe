@@ -12,21 +12,21 @@ git_option=("--list" "-v")
 while getopts ':inar' option; do
   case $option in
   i)
-    include_current_branch="1"
-    ;;
+  include_current_branch="1"
+  ;;
   n)
-    include_current_branch="0"
-    ;;
+  include_current_branch="0"
+  ;;
   a)
-    git_option+=("-a")
-    ;;
+  git_option+=("-a")
+  ;;
   r)
-    git_option+=("-r")
-    ;;
+  git_option+=("-r")
+  ;;
   *)
-    echo "$0: invalid option -- $OPTARG" 1>&2
-    return 1
-    ;;
+  echo "$0: invalid option -- $OPTARG" 1>&2
+  return 1
+  ;;
   esac
 done
 shift $(expr $OPTIND - 1)
@@ -34,10 +34,10 @@ shift $(expr $OPTIND - 1)
 git branch $git_option \
 | {
   if [[ "$include_current_branch" == "1" ]]; then
-    sed 's/^\*//'
+  sed 's/^\*//'
   else
-    # remove current branch name
-    grep -v '^\*'
+  # remove current branch name
+  grep -v '^\*'
   fi
 } \
 | sed 's/^  *//'

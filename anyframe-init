@@ -8,8 +8,8 @@ for dir in ${^fpath}/anyframe-functions/{actions,selectors,sources}(N-/); do
   fpath=($fpath $dir)
 
   for file in $dir/*(N-.); do
-    local function_name="${file:t}"
-    autoload -Uz -- "$function_name"
+  local function_name="${file:t}"
+  autoload -Uz -- "$function_name"
   done
 done
 
@@ -17,9 +17,9 @@ for dir in ${^fpath}/anyframe-functions/widgets(N-/); do
   fpath=($fpath $dir)
 
   for file in $dir/*(N-.); do
-    local function_name="${file:t}"
-    autoload -Uz -- "$function_name"
-    zle -N -- "$function_name"
+  local function_name="${file:t}"
+  autoload -Uz -- "$function_name"
+  zle -N -- "$function_name"
   done
 done
 
