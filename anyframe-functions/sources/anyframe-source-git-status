@@ -6,7 +6,7 @@
 local base_path="$(git rev-parse --show-cdup | sed 's%/%\\/%g')"
 
 git status --porcelain |
-  sed "s/^\(..\) /\1\t${base_path}/" |  # convert file path to relative path
+  sed "s/^\(..\) /\1\t${base_path}/" | # convert file path to relative path
   grep "^$1"
 
 # Local Variables:
